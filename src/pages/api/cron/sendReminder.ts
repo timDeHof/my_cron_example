@@ -1,7 +1,7 @@
 import { axiosClient } from "@/lib/api";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function (req: NextApiRequest, res: NextApiResponse) {
+export default async function GET(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const response = await axiosClient.get("/users/profile/photos");
 		console.log(response.data);
