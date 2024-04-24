@@ -1,16 +1,11 @@
+import { axiosClient } from "@/lib/api";
 import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function GET(req: NextApiRequest, res: NextApiResponse) {
+export default async function (req: NextApiRequest, res: NextApiResponse) {
 	try {
-		const response = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/users/profile/photos`,
-		);
+		const response = await axiosClient.get("/users/profile/photos");
 
-		if (!response.ok) {
-			throw new Error("Failed to fetch users data");
-		}
-		const usersData = await response.json();
-		res.status(200).json({ usersData });
+		res.status(200).json(response.data);
 	} catch (error) {
 		if (typeof error === "object" && error !== null && "status" in error) {
 			res.status(500).json({ error: error });
