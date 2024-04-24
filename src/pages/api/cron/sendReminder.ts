@@ -10,7 +10,7 @@ export default async function handler(
 		res.status(200).json(response.data);
 	} catch (error) {
 		if (typeof error === "object" && error !== null && "status" in error) {
-			res.status(error.status).json({ error: error });
+			res.status(500).json({ error: error });
 		} else {
 			// Handle other types of errors or rethrow them
 			throw error;
