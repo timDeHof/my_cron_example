@@ -4,7 +4,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default async function (req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const response = await axiosClient.get("/users/profile/photos");
-
+		console.log(response.data);
 		res.status(200).json(response.data);
 	} catch (error) {
 		if (typeof error === "object" && error !== null && "status" in error) {
