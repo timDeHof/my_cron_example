@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default async function GET(req: NextApiRequest, res: NextApiResponse) {
 	try {
 		const response = await fetch(
-			`http://localhost:5000/api/v1/users/profile/photos`,
+			`${process.env.NEXT_PUBLIC_API_URL}/users/profile/photos`,
 		);
 
 		if (!response.ok) {
