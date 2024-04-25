@@ -6,9 +6,11 @@ export default async function handler(
 	res: NextApiResponse,
 ) {
 	try {
-		const response = await axiosClient.get("/users/profile/photos");
+		// const response = await axiosClient.get("/users/profile/photos");
 
-		res.status(200).json(response.data);
+		// res.status(200).json(response.data);
+
+		res.status(200).json({ message: "success" });
 	} catch (error) {
 		if (typeof error === "object" && error !== null && "status" in error) {
 			res.status(500).json({ error: error });
