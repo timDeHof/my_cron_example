@@ -9,8 +9,9 @@ export default async function handler(
 		// const response = await axiosClient.get("/users/profile/photos");
 
 		// res.status(200).json(response.data);
-
-		res.status(200).json({ message: "success" });
+		fetch("https://dummyjson.com/users/1")
+			.then((res) => res.json())
+			.then(console.log);
 	} catch (error) {
 		if (typeof error === "object" && error !== null && "status" in error) {
 			res.status(500).json({ error: error });
