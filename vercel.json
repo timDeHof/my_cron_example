@@ -1,7 +1,7 @@
 {
 	"crons": [
 		{
-			"path": "/api/cron/sendreminder",
+			"path": "/api/cron/sendreminder.ts",
 			"schedule": "21 12 * * *"
 		},
 		{
